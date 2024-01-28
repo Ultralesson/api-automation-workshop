@@ -1,3 +1,4 @@
+import clients.UserClient;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -15,14 +16,9 @@ public class UserSignupTest extends BaseAPITest {
         String email = UUID.randomUUID() + "@ultralesson.com";
         String password = "1234567890";
 
-        String userSignupResourceEndpoint = "/api/auth/signup";
-        String userSignupRequestBody = String.format("{\"email\": \"%s\", \"password\": \"%s\"}", email, password);
-
         // Act
-        Response signupResponse = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .body(userSignupRequestBody)
-                .post(userSignupResourceEndpoint);
+        UserClient userClient = new UserClient();
+        Response signupResponse = userClient.createUser(email, password);
 
         // Assert
         int statusCode = signupResponse.getStatusCode();
