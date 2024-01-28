@@ -1,4 +1,5 @@
 import clients.UserClient;
+import io.qameta.allure.*;
 import models.response.SignupResponseModel;
 import org.testng.annotations.Test;
 
@@ -7,8 +8,12 @@ import java.util.UUID;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
+@Epic("User Management")
+@Feature("User Registration")
 public class UserSignupTest extends BaseAPITest {
     @Test
+    @Story("Successful user registration")
+    @Severity(SeverityLevel.CRITICAL)
     public void testSuccessfulUserRegistration() {
         // Arrange
         String email = UUID.randomUUID() + "@ultralesson.com";

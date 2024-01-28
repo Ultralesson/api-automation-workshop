@@ -2,6 +2,7 @@
 import clients.CartClient;
 import clients.ProductClient;
 import clients.UserClient;
+import io.qameta.allure.*;
 import models.response.AddItemToCartResponseModel;
 import models.response.CreateCartResponseModel;
 import models.response.ProductFetchResponseModel;
@@ -10,7 +11,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.DataLoader;
 
-import java.util.UUID;public class AddToCartTest extends BaseAPITest {
+import java.util.UUID;
+
+@Epic("Shopping Cart Operations")
+@Feature("Add to Cart")
+public class AddToCartTest extends BaseAPITest {
+
+    @Story("Add item to shopping cart")
+    @Severity(SeverityLevel.BLOCKER)
 
     @Test
     public void addItemToCart() {
