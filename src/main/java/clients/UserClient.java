@@ -6,10 +6,11 @@ import io.restassured.response.Response;
 import models.request.SignupRequestModel;
 import models.response.SignupResponseModel;
 import utilities.ApiResponseDeserializer;
+import utilities.EndpointsConfig;
 
 public class UserClient {
     public SignupResponseModel createUser(String email, String password) {
-        String userSignupResourceEndpoint = "/api/auth/signup";
+        String userSignupResourceEndpoint = EndpointsConfig.getEndpoint("auth", "signUp");
         SignupRequestModel signupRequestModel = SignupRequestModel.builder()
                 .email(email)
                 .password(password)
