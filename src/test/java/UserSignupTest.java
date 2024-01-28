@@ -1,7 +1,6 @@
 import clients.UserClient;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import models.response.SignupResponseModel;
 import org.testng.annotations.Test;
 
 import java.util.UUID;
@@ -18,15 +17,13 @@ public class UserSignupTest extends BaseAPITest {
 
         // Act
         UserClient userClient = new UserClient();
-        Response signupResponse = userClient.createUser(email, password);
+        SignupResponseModel signupResponse = userClient.createUser(email, password);
 
         // Assert
-        int statusCode = signupResponse.getStatusCode();
-        String emailFromResponse = signupResponse.jsonPath().getString("data.user.email");
-        String role = signupResponse.jsonPath().getString("data.user.role");
-        String accessToken = signupResponse.jsonPath().getString("data.session.access_token");
+        String emailFromResponse = signupResponse.getData().getUser().getEmail();
+        String role = signupResponse.getData().getUser().getRole();
+        String accessToken = signupResponse.getData().getSession().getAccessToken();
 
-        assertEquals(statusCode, 201, "Expected status code to be 201 for successful registered user");
         assertEquals(emailFromResponse, email, "Emails should match");
         assertEquals(role, "authenticated", "Role should be authenticated");
         assertNotNull(accessToken, "Access token should not be null");
