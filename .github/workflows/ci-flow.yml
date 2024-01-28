@@ -1,0 +1,43 @@
+name: API Test Suite Execution
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  execute-api-tests:
+    runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: "dev"
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Java Development Kit (JDK) 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Configure Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Build Project with Gradle
+        run: ./gradlew build
+
+      - name: Execute Test Suite
+        run: ./gradlew test -PENVIRONMENT=$ENVIRONMENT
+
+      - name: Collect Test Results
+        id: test_results
+        run: |
+          passes=$(grep -o '<testcase' build/test-results/test/TEST-*.xml | wc -l)
+          failures=$(grep -o '<failure' build/test-results/test/TEST-*.xml | wc -l)
+          echo "::set-output name=passes::$passes"
+          echo "::set-output name=failures::$failures"
+
+      - name: Upload Allure Test Report Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Allure Test Report
+          path: build/allure-results
