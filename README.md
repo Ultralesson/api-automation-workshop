@@ -1,118 +1,46 @@
-# Ultralesson API Automation Workshop
+# Ultralesson API Automation Workshop with Rest Assured
 
-### Project Setup
+Welcome to the API Automation Workshop's main branch, which features a fully integrated API automation framework using Rest Assured. This framework is the culmination of a step-by-step instructional journey designed to teach you the ins and outs of API testing, from basic concepts to advanced CI/CD integration with GitHub Actions.
 
-This repository contains the initial setup for the API automation workshop. It includes essential dependencies and a basic environment check test to ensure everything is working correctly.
+## Framework Overview
 
-### Getting Started
+The `main` branch contains the complete, production-ready API automation framework. It's an aggregate of all the incremental features and lessons introduced in the workshop's task branches. If you're looking to understand the full picture or just want to dive into the code, you're in the right place!
 
-### Forking and Cloning the Repository
+For those interested in learning how this framework was built piece by piece, we've organized the workshop into detailed steps, each corresponding to a specific branch. You can explore these branches to see the evolution of the framework and understand the implementation of each feature.
 
--   **Fork the Repository:** Start by forking this repository to your own GitHub account. This provides you with a personal copy to work on independently.
+## Workshop Structure
 
-    -   Navigate to the original GitHub repository.
-    -   Click on the `Fork` button at the top right corner.
+Each branch represents a critical step in building the API automation framework. Below is an overview of what each branch covers:
 
--   **Clone Your Forked Repository:** After forking, clone your repository to your local machine. This allows you to work on the project locally.
+### [0-api-automation-workshop-project-template](https://github.com/Ultralesson/api-automation-workshop/tree/0-api-automation-workshop-project-template)
+_The starting point, providing the initial project structure and setup necessary for API automation._
 
-    ```bash
-    git clone https://github.com/your-username/your-repository.git
-    ```
+### [1-setting-up-base-test-configuration](https://github.com/Ultralesson/api-automation-workshop/tree/1-setting-up-base-test-configuration)
+_Discusses the fundamental setup for writing API tests including environment configurations._
 
-### Development Environment
+### [2-writing-a-test-case-for-user-signup-api](https://github.com/Ultralesson/api-automation-workshop/tree/2-writing-a-test-case-for-user-signup-api)
+_Demonstrates writing the first test case, focusing on a user signup API to illustrate basic assertions and validations._
 
--   **Integrated Development Environment (IDE):** You can use any IDE for Java development, but we recommend IntelliJ IDEA for the best experience.
--   **Java and Gradle Compatibility:** Ensure that the Java version installed on your system is compatible with the Gradle version used in the project (**Gradle 8.0, requires Java version < 20**). Refer to the Gradle documentation for [Compatibility Matrix](https://docs.gradle.org/current/userguide/compatibility.html) details if you tend to change the gradle version.
+### [3-establishing-a-client-layer-for-api-calls](https://github.com/Ultralesson/api-automation-workshop/tree/3-establishing-a-client-layer-for-api-calls)
+_Shows how to create a client layer to handle API calls more efficiently, abstracting the complexity of direct HTTP requests._
 
-### Setting Up
+### [4-creating-request-and-response-pojos](https://github.com/Ultralesson/api-automation-workshop/tree/4-creating-request-and-response-pojos)
+_Explains how to enhance test readability and reliability with POJOs for request and response models._
 
-1. **Open the Project:** Open the cloned repository in your preferred IDE.
-2. **Sync Gradle:** Make sure to sync the project with Gradle to download all the necessary dependencies.
+### [5-custom-deserializer-for-complete-api-response-handling-status-code-and-headers](https://github.com/Ultralesson/api-automation-workshop/tree/5-custom-deserializer-for-complete-api-response-handling-status-code-and-headers)
+_Teaches handling of comprehensive API responses, including deserialization strategies for status codes and headers._
 
-### Dependencies
+### [6-add-to-cart-test-case](https://github.com/Ultralesson/api-automation-workshop/tree/6-add-to-cart-test-case)
+_Covers a practical test scenario by implementing an "add to cart" feature, simulating real-world e-commerce user behavior._
 
-This project kickstarts with the following key dependencies:
+### [7-api-endpoint-and-data-externalizing-in-rest-assured-tests](https://github.com/Ultralesson/api-automation-workshop/tree/7-api-endpoint-and-data-externalizing-in-rest-assured-tests)
+_Provides insights into managing various environments and datasets by externalizing API endpoints and test data._
 
--   **RestAssured:** For API testing.
--   **TestNG:** For organizing and running tests.
+### [8-enhancing-test-reporting-mechanism](https://github.com/Ultralesson/api-automation-workshop/tree/8-enhancing-test-reporting-mechanism)
+_Focuses on the importance of test reporting, discussing methods to enhance the visibility and analysis of test results._
 
-These are already included in the project's `build.gradle` file.
-
-### Basic Test
-
-The repository includes an environment check test to verify that your setup is correct. You can find this test in the `EnvironmentCheckTest` class.
-
-### Executing the Test Case
-
-Once your environment is set up, you should verify everything is working correctly by running the included test case. You have two options to run the test: using your IDE or the command line.
-
--   **Using the IDE:**
-
-    -   Open the `EnvironmentCheckTest` class in your IDE.
-    -   Run the test using the IDE's built-in test runner. This can usually be done by right-clicking on the test file or the test method and selecting `Run`.
-
--   **Using the Command Line:**
-
-    -   You can also run the test case via the command line. This is a great way to quickly verify everything is set up correctly.
-    -   Navigate to the root directory of your project in the terminal.
-    -   Execute the following command:
-
-        ```bash
-        ./gradlew test --tests EnvironmentCheckTest
-        ```
-
--   **Test Verification:**
-    -   If the test passes and you see all green, it means your environment is correctly set up and ready for the workshop.
-    -   If you encounter any errors, check your environment setup and try running the test again.
-
-Remember, running the test case successfully is a good indicator that you have correctly configured your environment and are ready to proceed with the workshop activities.
-
-### Regular sync to remote
-
-You will be making regular updates to your forked repositories as we progress through the workshop.
-
--   **Committing Changes:** The following are the basic commands to stage the changes and commit the same.
-
-    ```bash
-    git add .
-    git commit -m "Descriptive message about the change"
-    ```
-
--   **Pushing to GitHub:** To synchronize our local repository with the remote repository on GitHub, we use the `git push` command.
-
-    ```bash
-    git push origin main
-    ```
-
-As part of this workshop, we will frequently refer to resources and documentation available on the Ultralesson website. To facilitate easy access and enhance our learning experience, we have included direct links to relevant sections of the website.
-
-### Resources
-
-[Swagger Documentation](https://www.apicademy.dev/docs/) for detailed API endpoint information and a [Postman collection](https://www.apicademy.dev/postman-collection-download) for practical interaction with the API used within the workshop.
-
-To complete the setup for the Ultralesson API Automation Workshop, you need to install Postman and import the provided collection. Here are the steps to do this:
-
-#### Postman Installation and Setup
-
-1. **Install Postman:**
-   - Visit the [Postman website](https://www.postman.com/downloads/).
-   - Download the version of Postman suitable for your operating system.
-   - Follow the installation instructions.
-
-2. **Open Postman:**
-   - Once installed, launch Postman on your computer.
-
-#### Importing the Collection into Postman
-
-1. **Download the Collection:**
-   - Access the [Postman collection download link](https://www.apicademy.dev/postman-collection-download) provided by Ultralesson.
-   - Download the collection file to your local machine.
-
-2. **Import the Collection:**
-   - In Postman, click on the `Import` button, usually located at the top left of the application.
-   - Select the `File` tab in the dialog box that appears.
-   - Choose the downloaded collection file or simply drag and drop it into the designated area.
-   - Once selected, click `Import` to add the collection to your Postman workspace.
+### [9-setting-up-github-actions-for-automated-test-execution](https://github.com/Ultralesson/api-automation-workshop/tree/9-setting-up-github-actions-for-automated-test-execution)
+_Completes the framework by integrating GitHub Actions for CI/CD, ensuring tests are automatically run with every code change._
 
 # Master REST Assured Through Our Guided Project
 
