@@ -21,8 +21,7 @@ In this branch, `2-writing-a-test-case-for-user-signup-api`, we focus on develop
 ## How to Run This Test
 
 1. Ensure you are on the correct branch `2-writing-a-test-case-for-user-signup-api`.
-2. Set up your test environment as per the configuration instructions in branch `1-setting-up-base-test-configuration`.
-3. Execute the test using your IDE or via the command line with Gradle:
+2. Execute the test using your IDE or via the command line with Gradle:
    ```shell
    ./gradlew test --tests "UserSignupTest.testSuccessfulUserRegistration"
    ```
