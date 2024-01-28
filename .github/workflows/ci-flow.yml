@@ -7,8 +7,6 @@ on:
 jobs:
   execute-api-tests:
     runs-on: ubuntu-latest
-    env:
-      ENVIRONMENT: "dev"
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -26,7 +24,7 @@ jobs:
         run: ./gradlew build
 
       - name: Execute Test Suite
-        run: ./gradlew test -PENVIRONMENT=$ENVIRONMENT
+        run: ./gradlew test
 
       - name: Collect Test Results
         id: test_results
