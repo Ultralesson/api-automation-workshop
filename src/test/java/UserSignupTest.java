@@ -1,5 +1,4 @@
 import clients.UserClient;
-import io.restassured.response.Response;
 import models.response.SignupResponseModel;
 import org.testng.annotations.Test;
 
@@ -27,5 +26,10 @@ public class UserSignupTest extends BaseAPITest {
         assertEquals(emailFromResponse, email, "Emails should match");
         assertEquals(role, "authenticated", "Role should be authenticated");
         assertNotNull(accessToken, "Access token should not be null");
+
+        // Asserting the status code
+        assertEquals(signupResponse.getStatusCode(), 201, "Unexpected status code in the response. Expected: 201");
+        assertEquals(signupResponse.getHeaders().get("Content-Type"),  "application/json; charset=utf-8", "Unexpected Content-Type header in the response. Expected: application/json; charset=utf-8");
+        assertEquals(signupResponse.getHeaders().get("Server"), "Google Frontend", "Unexpected Server header in the response. Expected: Google Frontend");
     }
 }

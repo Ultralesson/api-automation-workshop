@@ -11,6 +11,8 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignupResponseModel {
     private Data data;
+    private int statusCode;
+    private Map<String, String> headers;
 
     @lombok.Data
     @JsonIgnoreProperties(ignoreUnknown = true)
